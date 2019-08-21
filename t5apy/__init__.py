@@ -1,0 +1,6 @@
+__name__ = 't5apy'
+__version__ = '0.0.1'
+__author__ = 'didadadida93'
+__author_email__ = 'didadadida93@gmail.com'
+__description__ = 'Request public map data from Travian 5 API easly'
+__license__ = 'MIT'
