@@ -19,11 +19,11 @@ def request(method, url, params={}):
     """
 
     headers = {
-        'User-Agent': 'python-%s/%s' % (__name__, __version__),
+        'User-Agent': 'Python-%s/%s' % (__name__, __version__),
     }
 
     if params:
-        url = '?'.join([url, urllib.parse.urlencode(params)])
+        url = '?'.join([url, urllib.parse.urlencode(params, safe='@ : /')])
 
     req = urllib.request.Request(
         url=url,
