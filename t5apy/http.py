@@ -2,8 +2,12 @@
 end points.
 """
 
-import urllib.request
-import urllib.parse
+try:
+    import urllib.request as urllib_request
+    import urllib.parse as urllib_parse
+except ImportError:
+    import urllib2 as urllib_request
+    from . import urllib_parse
 
 from . import __version__
 from . import __name__
@@ -23,13 +27,13 @@ def request(method, url, params={}):
     }
 
     if params:
-        url = '?'.join([url, urllib.parse.urlencode(params, safe='@ : /')])
+        url = '?'.join([url, urllib_parse.urlencode(params, safe='@ : /')])
 
-    req = urllib.request.Request(
+    req = urllib_request.Request(
         url=url,
         method=method,
         headers=headers,
     )
 
-    with urllib.request.urlopen(req, timeout=60.0) as r:
+    with urllib_request.urlopen(req, timeout=60.0) as r:
         return r.read()

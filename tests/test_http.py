@@ -1,5 +1,9 @@
 import unittest
-from unittest.mock import patch
+import collections
+try:
+    from unittest.mock import patch
+except ImportError:
+    from mock import patch
 
 from t5apy import __name__
 from t5apy import __version__
@@ -10,11 +14,11 @@ class TestHTTP(unittest.TestCase):
 
     def setUp(self):
         self.headers = {
-            'User-Agent': 'python-%s/%s' % (__name__, __version__),
+            'User-Agent': 'Python-%s/%s' % (__name__, __version__),
         }
         self.url = 'https://httpbin.org/get'
 
-    @patch('t5apy.http.urllib.request')
+    @patch('t5apy.http.urllib_request')
     def test_request(self, mock_request):
         mock_request.urlopen().__enter__().read.return_value = 'mocked'
 
@@ -32,7 +36,7 @@ class TestHTTP(unittest.TestCase):
         self.assertEqual(r, 'mocked')
 
         # testing again with params
-        params = {'a':'a', 'b':'b', 'c':'c'}
+        params = collections.OrderedDict([('a', 'a'), ('b', 'b'), ('c', 'c')])
         r = request('GET', self.url, params)
 
         mock_request.Request.assert_called_with(

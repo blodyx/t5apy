@@ -18,6 +18,9 @@ setuptools.setup(
     author_email=t5apy.__author_email__,
     packages=['t5apy'],
     license=t5apy.__license__,
+    install_requires=[
+        'mock',
+    ]
     classifiers=[
         'License :: OIS Approved :: MIT License',
     ],

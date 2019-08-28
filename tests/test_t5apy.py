@@ -3,7 +3,10 @@ from t5apy import request_map_data
 from t5apy.fixtures import BASE_URL
 
 import unittest
-from unittest.mock import patch
+try:
+    from unittest.mock import patch
+except ImportError:
+    from mock import patch
 
 
 class Testt5apy(unittest.TestCase):
