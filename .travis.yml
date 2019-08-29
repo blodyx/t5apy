@@ -1,0 +1,13 @@
+language: python
+sudo: false
+python:
+  - 2.7
+  - 3.5
+  - 3.6
+  - 3.7
+script:
+  - pip install codecov
+  - pip install mock
+  - coverage run -m unittest discover
+after_success:
+  - codecov
