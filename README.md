@@ -3,6 +3,8 @@
 Request public map data from Travian 5 API more convenient with `t5apy`.  
 This [[official thread](https://forum.kingdoms.com/index.php?thread/4099-api-for-external-tools/)] explain on how to use Travian 5 API.
 
+[![Build Status](https://travis-ci.org/didadadida93/t5apy.svg?branch=master)](https://travis-ci.org/didadadida93/t5apy) [![codecov](https://codecov.io/gh/didadadida93/t5apy/branch/master/graph/badge.svg)](https://codecov.io/gh/didadadida93/t5apy) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
+
 # Installation
 
 > it's recommended to use [virtualenv](https://docs.python-guide.org/dev/virtualenvs/).
